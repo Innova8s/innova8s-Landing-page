@@ -98,8 +98,8 @@ section {
 /* Home Page Title Fix */
 .title-animate {
     white-space: nowrap;
-    font-size: 2.5rem !important;
-    overflow: hidden;
+    font-size: 2.1rem !important;
+    overflow: initial;
     text-overflow: ellipsis;
 }
 
@@ -1739,6 +1739,52 @@ nav.scrolled {
 }
 
 /* ===== MINIMALIST HEXAGON GRID - Products ===== */
+
+/* Center the hexagon grid */
+.hexagon-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.hexagon-row.centered-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    justify-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments for centered layout */
+@media (max-width: 1200px) {
+    .hexagon-row.centered-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hexagon-row.centered-row {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        max-width: 300px;
+    }
+    
+    .hexagon-item {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hexagon-row.centered-row {
+        gap: 50px;
+    }
+}
+
 .hexagon-grid {
     display: flex;
     flex-direction: column;
