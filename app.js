@@ -1,3 +1,41 @@
+// Initial Page Load - Loading Screen (1 second fixed)
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    
+    // Only show loading screen if it's the initial page load
+    if (loadingScreen && !sessionStorage.getItem('initialLoadComplete')) {
+        
+        function completeLoading() {
+            // Mark initial load as complete in session storage
+            sessionStorage.setItem('initialLoadComplete', 'true');
+            
+            // Add fade-out class to loading screen
+            loadingScreen.classList.add('fade-out');
+            
+            // Add loaded class to body to show content
+            document.body.classList.add('loaded');
+            
+            // Remove loading screen from DOM after transition
+            setTimeout(() => {
+                if (loadingScreen.parentNode) {
+                    loadingScreen.remove();
+                }
+            }, 500);
+        }
+        
+        // Complete loading after exactly 1 second
+        setTimeout(completeLoading, 1200);
+        
+    } else {
+        // If initial load was already completed, hide loading screen immediately
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+        }
+        document.body.classList.add('loaded');
+    }
+});
+
+// Your existing JavaScript code continues below...
 // Mobile Menu Toggle
 document.querySelector('.mobile-menu').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('active');
